@@ -206,59 +206,7 @@ class FPN(BaseModule):
 
 
 
-# class FPN(BaseModule):
-#     def __init__(self,
-#                  in_channels,
-#                  out_channels,
-#                  ):
-#         super(FPN, self).__init__()
-#
-#         self.P5_1 = nn.Conv2d(in_channels[3], out_channels, kernel_size=1, stride=1, padding=0)
-#         self.P5_upsampled = nn.Upsample(scale_factor=2, mode='nearest')
-#         self.P5_2 = nn.Conv2d(out_channels, out_channels, kernel_size=3, stride=1, padding=1)
-#
-#         self.P4_1 = nn.Conv2d(in_channels[2], out_channels, kernel_size=1, stride=1, padding=0)
-#         self.P4_upsampled = nn.Upsample(scale_factor=2, mode='nearest')
-#         self.P4_2 = nn.Conv2d(out_channels, out_channels, kernel_size=3, stride=1, padding=1)
-#
-#         self.P3_1 = nn.Conv2d(in_channels[1], out_channels, kernel_size=1, stride=1, padding=0)
-#         self.P3_upsampled = nn.Upsample(scale_factor=2, mode='nearest')
-#         self.P3_2 = nn.Conv2d(out_channels, out_channels, kernel_size=3, stride=1, padding=1)
-#
-#         self.P2_1 = nn.Conv2d(in_channels[0], out_channels, kernel_size=1, stride=1, padding=0)
-#         self.P2_2 = nn.Conv2d(out_channels, out_channels, kernel_size=3, stride=1, padding=1)
-#
-#
-#         self.P6 = nn.Conv2d(in_channels[3], out_channels, kernel_size=3, stride=2, padding=1)
-#     def forward(self, inputs):
-#         """Forward function."""
-#
-#
-#         C2, C3, C4, C5 = inputs
-#         P5_x = self.P5_1(C5)  # 512-256  10
-#         P5_x = self.P5_2(P5_x)  # 256-256  10
-#         P5_upsampled_x = self.P5_upsampled(P5_x)  # 256  20
-#
-#
-#         P4_x = self.P4_1(C4)  # 512-256  10
-#         P4_x=P4_x+P5_upsampled_x
-#         P4_x = self.P4_2(P4_x)  # 256-256  10
-#         P4_upsampled_x = self.P4_upsampled(P4_x)  # 256  20
-#
-#         P3_x = self.P3_1(C3)  # 512-256  10
-#         P3_x=P3_x+P4_upsampled_x
-#         P3_x = self.P3_2(P3_x)  # 256-256  10
-#         P3_upsampled_x = self.P3_upsampled(P3_x)  # 256  20
-#
-#         p2_x = self.P2_1(C2)
-#         p2_x=P3_upsampled_x+p2_x
-#         p2_x=self.P2_2(p2_x)
-#
-#
-#         P6_x = self.P6(C5)
-#
-#
-#         return [p2_x, P3_x, P4_x, P5_x, P6_x]
+
 
 
 
