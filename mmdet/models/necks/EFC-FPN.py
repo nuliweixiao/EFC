@@ -54,7 +54,7 @@ class EFC(BaseModule):
             x_1_map = out_1.reshape(N, 1, -1)
             mean_1 = x_1_map.mean(dim=2, keepdim=True)
             x_1_av = x_1_map / mean_1
-            x_2_2 = F.softmax(x_1_av, dim=1)
+            x_2_2 = F.softmax(x_1_av, dim=-1)
             x1 = x_2_2.reshape(N, C, H, W)
             x1 = X_[group_id] * x1
             out.append(x1)
